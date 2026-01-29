@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eduva – Learn Better</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!-- AUTH MODAL -->
+<div class="auth-modal" id="authModal">
+  <div class="auth-box">
+    <h3 id="authTitle">Login</h3>
+
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+
+    <button class="btn primary" onclick="handleAuth()">Continue</button>
+
+    <p class="switch">
+      No account?
+      <span onclick="switchMode()">Register</span>
+    </p>
+  </div>
+</div>
+<!-- COURSE MODAL -->
+<div class="auth-modal" id="courseModal">
+  <div class="auth-box">
+    <h3 id="courseTitle"></h3>
+    <p id="courseDesc"></p>
+
+    <button class="btn primary" onclick="enrollCourse()">Open</button>
+    <button class="btn outline" onclick="closeCourse()">Close</button>
+  </div>
+</div>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-row">
+    <div class="logo">Eduva</div>
+
+    <nav class="nav">
+  <a href="#home">Home</a>
+  <a href="#courses">Courses</a>
+  <a href="#community">Community</a>
+</nav>
+
+
+    <div class="auth">
+  <a href="#" class="login" onclick="openAuth()">Log in</a>
+  <a href="#" class="btn primary" onclick="openAuth()">Sign up</a>
+</div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <h1>
+        Unlock Your <span>Learning</span><br />
+        Potential
+      </h1>
+      <p>
+        Studify helps students learn smarter with modern courses,
+        community tools and clear progress tracking.
+      </p>
+      <div class="hero-actions">
+<button class="btn primary" onclick="handleGetStarted()">Get Started</button>
+<button class="btn outline" onclick="scrollToFeatures()">Explore Features</button>
+
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>📘 Smart Learning</h3>
+      <p>All your study tools in one platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING COURSES -->
+<section class="section" id="courses">
+  <div class="container center">
+    <h2>🔥 Trending Courses</h2>
+    <p class="subtitle">Popular picks among students</p>
+
+    <div class="cards">
+      <div class="course-card blue" onclick="openCourse('Web Development')">
+
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript & React</p>
+        <span>⭐ 4.9 · 15k students</span>
+      </div>
+
+      <div class="course-card purple" onclick="openCourse('UI / UX Design')">
+
+
+        <h3>UI / UX Design</h3>
+        <p>Design systems & Figma</p>
+        <span>⭐ 4.8 · 8k students</span>
+      </div>
+
+      <div class="course-card cyan" onclick="openCourse('AI & Machine Learning')">
+        <h3>AI & Machine Learning</h3>
+        <p>Python & TensorFlow</p>
+        <span>⭐ 5.0 · 12k students</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why" id="features">
+  <div class="container center">
+    <h2>Why Choose EDUVA?</h2>
+    <p class="subtitle">
+      Everything you need to succeed in one place
+    </p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">🧠</div>
+        <h3>Interactive Learning</h3>
+        <p>
+          Engaging content with quizzes and challenges
+          for better understanding.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon">👨‍🏫</div>
+        <h3>Expert Tutors</h3>
+        <p>
+          Learn from experienced educators across
+          different subjects.
+        </p>
+      </div>
+
+      <div class="why-card highlight">
+        <div class="icon">🎧</div>
+        <h3>24/7 Support</h3>
+        <p>
+          Get round-the-clock assistance whenever
+          you need help.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon">📜</div>
+        <h3>Certification</h3>
+        <p>
+          Earn recognized certificates to boost
+          your academic profile.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon">📱</div>
+        <h3>Mobile Learning</h3>
+        <p>
+          Access courses anytime, anywhere
+          on any device.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon">📊</div>
+        <h3>Progress Tracking</h3>
+        <p>
+          Monitor your learning progress with
+          clear analytics.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- COMMUNITY -->
+<section class="community" id="community">
+
+  <div class="container center">
+    <h2>Join Our Community 🌍</h2>
+    <p class="subtitle">Connect, learn and grow together</p>
+
+    <div class="cards">
+      <div class="info-card">
+        <h3>💬 Study Groups</h3>
+        <p>Learn together with peers</p>
+      </div>
+      <div class="info-card">
+        <h3>🏆 Leaderboards</h3>
+        <p>Track your progress</p>
+      </div>
+      <div class="info-card">
+        <h3>🎥 Webinars</h3>
+        <p>Learn from experts</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container center">
+    <h2>What Students Say 💬</h2>
+
+    <div class="cards">
+      <div class="review-card">
+        <p>
+          Studify completely changed how I study.
+          Everything is clear and well organized.
+        </p>
+        <strong>Alex Johnson</strong>
+      </div>
+
+      <div class="review-card">
+        <p>
+          The best platform for students.
+          Clean UI and very useful tools.
+        </p>
+        <strong>Maria Smith</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <!-- BRAND -->
+    <div class="footer-brand">
+      <div class="footer-logo">EDUVA</div>
+      <p>37-700, Przemysl</p>
+      <p>CEO - Maksym Olshanivskyi</p>
+      <p>Creative director - Taras Hyzymchuk</p>
+      <p>Tel: +48 500 000 000</p>
+      <p>E-mail: info@eduva.edu</p>
+
+    </div>
+
+    <!-- ABOUT -->
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <a href="#">Why EDUVA</a>
+      <a href="#">Process</a>
+      <a href="#">About Us</a>
+      <a href="#">Pricing</a>
+      <a href="#">Results</a>
+      <a href="#">Blog</a>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">University Admission</a>
+      <a href="#">Scholarships</a>
+      <a href="#">Work & Travel</a>
+      <a href="#">Language Courses</a>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Visa Support</a>
+      <a href="#">Articles</a>
+      <a href="#">Success Stories</a>
+      <a href="#">FAQ</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 EDUVA. Future in PANSP.
+  </div>
+</footer>
